@@ -38,31 +38,29 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-       /* http
+        http
                 .authorizeRequests()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("*//**")
-         .permitAll();*/
-
-
+                .loginPage("/")
+         .permitAll();
 
         http.authorizeRequests().antMatchers("/admin/**")
                 .access("hasRole('ROLE_ADMIN')").and().formLogin()
-                .loginPage("/admin").failureUrl("/login?error")
+                .loginPage("/admin").failureUrl("/?error")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .and().logout().logoutSuccessUrl("/admin?logout")
+                .and().logout().logoutSuccessUrl("/?logout")
                 .and().csrf()
                 .and().exceptionHandling().accessDeniedPage("/403");
 
         http.authorizeRequests().antMatchers("/user/**")
                 .access("hasRole('ROLE_USER')").and().formLogin()
-                .loginPage("/user").failureUrl("/login?error")
+                .loginPage("/user").failureUrl("/?error")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .and().logout().logoutSuccessUrl("/user?logout")
+                .and().logout().logoutSuccessUrl("/?logout")
                 .and().csrf()
                 .and().exceptionHandling().accessDeniedPage("/403");
     }

@@ -7,19 +7,22 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="sec"
-          uri="http://www.springframework.org/security/tags"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+          uri="http://www.springframework.org/security/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>User page</title>
+
     <h1>USER PAGE</h1>
 </head>
 <body>
+
 <sec:authorize access="hasRole('ROLE_USER')">
-    <c:url value="/j_spring_security_logout" var="logoutUrl" />
+    <h2>User content</h2>
+    <c:url value="/j_spring_security_logout" var="logoutUrl"/>
     <form action="${logoutUrl}" method="post" id="logoutForm">
         <input type="hidden" name="${_csrf.parameterName}"
-               value="${_csrf.token}" />
+               value="${_csrf.token}"/>
     </form>
     <script>
         function formSubmit() {
