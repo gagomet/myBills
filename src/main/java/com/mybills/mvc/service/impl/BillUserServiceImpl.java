@@ -16,7 +16,8 @@ import java.util.List;
 /**
  * Created by Padonag on 28.12.2014.
  */
-@Service("billUserService")
+//@Service("billUserService")
+@Service
 @Repository
 @Transactional
 public class BillUserServiceImpl implements IBillUserService {

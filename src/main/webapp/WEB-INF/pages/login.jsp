@@ -2,7 +2,7 @@
 <%@taglib prefix="sec"
           uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page session="true"%>
+<%--<%@page session="true"%>--%>
 
 <html>
 <c:url value="/j_spring_security_check" var="loginUrl" />

@@ -43,7 +43,7 @@ public class BillUserDetailService implements UserDetailsService {
         for (UserRole userRole : userRoles) {
             setAuths.add(new SimpleGrantedAuthority(userRole.getRole()));
         }
-        List<GrantedAuthority> Result = new ArrayList<GrantedAuthority>(setAuths);
-        return Result;
+//        List<GrantedAuthority> result = new ArrayList<GrantedAuthority>(setAuths);
+        return new ArrayList<GrantedAuthority>(setAuths);
     }
 }
